@@ -4,20 +4,37 @@
 const photos = [
   "https://via.placeholder.com/400x320/8ff.webp",
   "https://via.placeholder.com/300x520/04f.webp",
-  "https://via.placeholder.com/400x820/ff9.webp",
-
+  "https://via.placeholder.com/820x420/ff9.webp",
   "https://via.placeholder.com/600x320/1f1.webp",
 ];
+console.log(Astro.url.hash);
 ---
 
-<!-- photo slider -->
 <div class="h-full w-full flex flex-row items-center">
-  <div class="w-full">
+  <div
+    class="scroll-smooth scrollbar-hide w-[95%] h-full md:h-screen overflow-scroll snap-mandatory snap-y snap-start"
+  >
     {
-      photos.map((photo) => (
-        <img src={photo} class="w-full h-full object-contain" />
+      photos.map((photo, index) => (
+        <img
+          src={photo}
+          id={`${index}`}
+          class=" snap-start w-full h-full object-contain"
+        />
       ))
     }
   </div>
-  <div class="justify-self-end">I am a content scrollbar</div>
+  <div
+    class="gap-4 w-[5%] items-center justify-self-end flex flex-row md:flex-col"
+  >
+    {
+      photos.map((photo, index) => (
+        <a
+          data-anchor={`${index}`}
+          href={`#${index}`}
+          class={`h-2 w-auto active:h-4 aspect-square bg-black rounded-full dark:bg-purple-500`}
+        />
+      ))
+    }
+  </div>
 </div>

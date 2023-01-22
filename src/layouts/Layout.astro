@@ -12,12 +12,18 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="theme-color"
+      content="#000000"
+      media="(prefers-color-scheme: dark)"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body
-    class="flex flex-col md:flex-row md:items-center bg-white dark:bg-black text-black dark:text-[#FF00FF] dark:selection:bg-[#FF00FF] dark:selection:text-black font-mono"
+    class="flex flex-col md:flex-row md:items-center bg-white dark:bg-black text-black dark:text-purple-500 dark:selection:bg-purple-500 dark:selection:text-black font-mono"
   >
     <!-- Nav -->
     <Nav />
@@ -41,5 +47,12 @@ const { title } = Astro.props;
     width: 75%;
     display: flex;
     flex-direction: column;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 </style>

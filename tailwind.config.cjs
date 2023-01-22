@@ -5,7 +5,16 @@ module.exports = {
 		fontFamily: {
 			'mono': ['Courier New', 'Courier', 'monospace'],
 		},
-		extend: {},
+		extend: {
+			colors: {
+				"green": {
+					"500": "#03FF00"
+				},
+				"purple": {
+					"500": "#FF00FF"
+				},
+			},
+		},
 	},
 	plugins: [],
 }
