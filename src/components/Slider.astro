@@ -1,0 +1,23 @@
+---
+// fetch photos from firebase
+// const photos = await firebase.firestore().collection('photos').get()
+const photos = [
+  "https://via.placeholder.com/400x320/8ff.webp",
+  "https://via.placeholder.com/300x520/04f.webp",
+  "https://via.placeholder.com/400x820/ff9.webp",
+
+  "https://via.placeholder.com/600x320/1f1.webp",
+];
+---
+
+<!-- photo slider -->
+<div class="h-full w-full flex flex-row items-center">
+  <div class="w-full">
+    {
+      photos.map((photo) => (
+        <img src={photo} class="w-full h-full object-contain" />
+      ))
+    }
+  </div>
+  <div class="justify-self-end">I am a content scrollbar</div>
+</div>
