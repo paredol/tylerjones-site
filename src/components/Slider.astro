@@ -10,29 +10,29 @@ const photos = [
 console.log(Astro.url.hash);
 ---
 
-<div class="h-full w-full flex flex-row items-center">
+<div class="flex h-full w-full flex-row items-center gap-x-4">
   <div
-    class="scroll-smooth scrollbar-hide w-[95%] h-full md:h-screen overflow-scroll snap-mandatory snap-y snap-start"
+    class="scrollbar-hide h-full w-[95%] snap-y snap-mandatory snap-start overflow-scroll scroll-smooth md:h-screen"
   >
     {
       photos.map((photo, index) => (
         <img
           src={photo}
           id={`${index}`}
-          class=" snap-start w-full h-full object-contain"
+          class=" h-full w-full snap-start object-contain"
         />
       ))
     }
   </div>
   <div
-    class="gap-4 w-[5%] items-center justify-self-end flex flex-row md:flex-col"
+    class="flex w-[5%] flex-row items-center gap-4 justify-self-end md:flex-col"
   >
     {
       photos.map((photo, index) => (
         <a
           data-anchor={`${index}`}
           href={`#${index}`}
-          class={`h-2 w-auto active:h-4 aspect-square bg-black rounded-full dark:bg-purple-500`}
+          class={`aspect-square h-2 w-auto rounded-full bg-black hover:bg-green-500 active:h-4 dark:bg-purple-500 hover:dark:bg-white`}
         />
       ))
     }
