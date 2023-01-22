@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import SliderBar from "./SliderBar.js";
+import SliderBar from "./SliderBar";
 
 export default function Slider() {
   const [hash, setHash] = useState(window.location.hash);
