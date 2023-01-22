@@ -1,0 +1,26 @@
+---
+const { photos } = Astro.props;
+---
+
+<div
+  class="flex w-[5%] flex-row items-center gap-4 justify-self-end md:flex-col"
+>
+  {
+    photos.map((photo, index) => (
+      <a
+        data-anchor={`#${index}`}
+        href={`#${index}`}
+        class={`aspect-square h-3 w-3 rounded-full bg-black hover:bg-green-500 dark:bg-purple-500 hover:dark:bg-white`}
+      />
+    ))
+  }
+</div>
+<script>
+  console.log(window.location.hash);
+  const anchors = document.querySelectorAll("[data-anchor]");
+  // style the anchor that matches the hash
+  anchors.forEach((anchor: HTMLElement) => {
+    if (anchor.dataset.anchor === window.location.hash)
+      anchor.classList.add("bg-green-500", "dark:bg-white", "w-6", "h-6");
+  });
+</script>

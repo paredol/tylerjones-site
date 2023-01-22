@@ -1,10 +1,11 @@
 ---
+import "../styles/globals.css";
 import Nav from "components/Nav.astro";
 export interface Props {
-  title: string;
+  title?: string;
 }
 
-const { title } = Astro.props;
+const { title = "Tyler Jones" } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -12,7 +13,11 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
     <meta
       name="theme-color"
       content="#000000"
@@ -23,36 +28,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body
-    class="flex flex-col gap-x-4 bg-white font-mono text-black dark:bg-black dark:text-purple-500 dark:selection:bg-purple-500 dark:selection:text-black md:flex-row md:items-center md:px-12"
+    class="flex flex-col gap-x-4 bg-white font-mono text-black selection:bg-green-500 selection:text-black dark:bg-black dark:text-purple-500 dark:selection:bg-purple-500 dark:selection:text-black md:flex-row md:items-center md:px-12"
   >
     <!-- Nav -->
     <Nav />
     <slot />
   </body>
 </html>
-<style is:global>
-  * {
-    box-sizing: border-box;
-    /* outline: 1px solid #0091ff31; */
-  }
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-  }
-  main {
-    height: 100%;
-    width: 100%%;
-    display: flex;
-    flex-direction: column;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-</style>

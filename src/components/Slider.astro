@@ -1,13 +1,17 @@
 ---
+import SliderBar from "./SliderBar.jsx";
 // fetch photos from firebase
+
 // const photos = await firebase.firestore().collection('photos').get()
 const photos = [
   "https://via.placeholder.com/400x320/8ff.webp",
   "https://via.placeholder.com/300x520/04f.webp",
   "https://via.placeholder.com/820x420/ff9.webp",
   "https://via.placeholder.com/600x320/1f1.webp",
+  "https://via.placeholder.com/400x320/8ff.webp",
+  "https://via.placeholder.com/300x520/04f.webp",
+  "https://via.placeholder.com/820x420/ff9.webp",
 ];
-console.log(Astro.url.hash);
 ---
 
 <div class="flex h-full w-full flex-row items-center gap-x-4">
@@ -24,17 +28,5 @@ console.log(Astro.url.hash);
       ))
     }
   </div>
-  <div
-    class="flex w-[5%] flex-row items-center gap-4 justify-self-end md:flex-col"
-  >
-    {
-      photos.map((photo, index) => (
-        <a
-          data-anchor={`${index}`}
-          href={`#${index}`}
-          class={`aspect-square h-2 w-auto rounded-full bg-black hover:bg-green-500 active:h-4 dark:bg-purple-500 hover:dark:bg-white`}
-        />
-      ))
-    }
-  </div>
+  <SliderBar photos={photos} client:only="react" />
 </div>
